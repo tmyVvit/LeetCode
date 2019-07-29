@@ -1,6 +1,6 @@
 # LeetCode
 
-###LeetCode everyday
+### LeetCode everyday
 
 1. Letter Combination of a Phone Number
 
@@ -15,4 +15,5 @@
    
 4. Binary Tree Paths
  > Given two kinds of solution, first is using a `heap` to find all paths, this way is complicated, but you can review the 
-   knoledge of `heap` . The other solution is using `recursive`, the codes is simple and easy to understand.
+   knowledge of `heap` . The other solution is using `recursive`, the codes is simple and easy to understand.
+
