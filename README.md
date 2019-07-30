@@ -17,3 +17,8 @@
  > Given two kinds of solution, first is using a `heap` to find all paths, this way is complicated, but you can review the 
    knowledge of `heap` . The other solution is using `recursive`, the codes is simple and easy to understand.
 
+5. Median of Two Sorted Arrays
+ > The first solution is combine two sorted arrays to one sorted array, and then can find median easily, but the time and 
+   space complexity is O(m+n).
+    
+ > The Second solution time complexity is O(min(m, n)), and a little hard to understand. It likes a binary search. 
