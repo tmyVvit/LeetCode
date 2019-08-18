@@ -22,3 +22,8 @@
    space complexity is O(m+n).
     
  > The Second solution time complexity is O(min(m, n)), and a little hard to understand. It likes a binary search. 
+
+6. Grid Illumination
+ > The first solution is using a 2-dimension array to store the grid, and update it when get result from queries. But it
+   is memory limit exceeded when submit.
+ > Todo, the second solution is just verify the queries location is light or not depend on the lamps location.
