@@ -26,4 +26,9 @@
 6. Grid Illumination
  > The first solution is using a 2-dimension array to store the grid, and update it when get result from queries. But it
    is memory limit exceeded when submit.
- > Todo, the second solution is just verify the queries location is light or not depend on the lamps location.
+ > The second solution do not need to store the grid array, just to justify the `(x, y)` is lit or not. Init 4 map to store
+   the lamps location info. lampsX for same x lamps' number, lampsY for same y lamps' number, and lampsXDiagonal/lampsYDiagonal for same 
+   diagonal lamps' number. For each query just justify if the value get from 4 maps is 0 or not and then update the four maps.
+
+ > The second solution still have time limit exceeded when the grid dimension is up to 1,000,000,000. So it is have much
+   to improve
