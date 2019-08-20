@@ -37,3 +37,7 @@
  > An easy problem. Need to find the maximum average contiguous subarray of given length. And what I need to do is to traverse
    the array in order and store the sum max k-length subarray `maxTotal` and the sum of current k-length subarray 
    `currentSum + nums[i] - nums[i-k]`.
+
+8. Set Mismatch
+ > Just need to traverse the array to find the duplicate number. And then using the correct sum and the current sum to find
+   the difference between duplicate and missing number.
