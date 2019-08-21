@@ -50,3 +50,5 @@
  > For this array the total hamming distance is easy to calculate, cause the hamming distance of 0 and 0 or 1 and 1 is 0, 
  > and 1 and 0 is 1. So the total hamming distance for this array is number of 0 multiply number of 1. Now we get 1 bit of
  > the initial array's hamming distance, so we can then repeat it 32 times to get the total hamming distance.
+
+10. Reverse Bits
