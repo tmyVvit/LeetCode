@@ -41,3 +41,12 @@
 8. Set Mismatch
  > Just need to traverse the array to find the duplicate number. And then using the correct sum and the current sum to find
    the difference between duplicate and missing number.
+
+9. Total Hamming Distance
+ > First solution is an ugly solution. I just traverse the array twice and get the hamming distance of each pair of numbers.
+ > and then get the sum. So time complexity is O(n^2). It is time limit exceeded when run in LeetCode.
+ > Second solution is using another thought. I do not calculate the pair or numbers' hamming distance. In contrast, I calculate
+ > all numbers hamming distance for each of their bit. For an array with all numbers are 1-bit, so it contains only 0 and 1.
+ > For this array the total hamming distance is easy to calculate, cause the hamming distance of 0 and 0 or 1 and 1 is 0, 
+ > and 1 and 0 is 1. So the total hamming distance for this array is number of 0 multiply number of 1. Now we get 1 bit of
+ > the initial array's hamming distance, so we can then repeat it 32 times to get the total hamming distance.
