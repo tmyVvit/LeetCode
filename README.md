@@ -58,3 +58,12 @@
 
 12. Reverse Words In A String III
  > Split the original string by " " and the reverse each word.
+
+13. Circular Array Loop
+ > As a circular array loop, it cannot contain both negative and positive numbers within the numbers in the loop. And if
+ > the number has been used in previous non-loop it will not be in the loop if there exist a loop in the array. I traverse
+ > the initial array from start to end. And for each `i`, I will try to find a loop.I create a int array to record the 
+ > index that has been used before, and create a list to record the index of the loop. Using `getNextIndex()` to get 
+ > `nextIndex`. There exists a loop only if the list contains the `nextIndex` and it is not the last one in the list. And
+ > if `nums[nextIndex}` and `nums[currentIndex]` are not both negative or positive, or the `nextIndex` is the last one of
+ > the list, it is invalid, just clear the list and break. 
