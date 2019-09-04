@@ -20,10 +20,18 @@ public class Huawei2 {
     public static String simpleInterpreter() {
         try (Scanner sc = new Scanner(System.in)) {
             int lines = sc.nextInt();
+            String[] expressions = new String[lines];
             sc.nextLine();
             String result = null;
-            for (; lines > 0; lines--) {
-                result = calculateEachExpression(sc.nextLine());
+            for (int i = 0; i < lines; i++) {
+                expressions[i] = sc.nextLine();
+            }
+            result = calculateEachExpression(expressions[lines - 1]);
+            if (!"NA".equals(result)) {
+                return result;
+            }
+            for (int i = 0; i < lines; i++) {
+                result = calculateEachExpression(expressions[i]);
             }
             return result;
         }

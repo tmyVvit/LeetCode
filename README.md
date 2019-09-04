@@ -67,3 +67,14 @@
  > `nextIndex`. There exists a loop only if the list contains the `nextIndex` and it is not the last one in the list. And
  > if `nums[nextIndex}` and `nums[currentIndex]` are not both negative or positive, or the `nextIndex` is the last one of
  > the list, it is invalid, just clear the list and break. 
+
+14. [Valid Permutations for DI Sequence](https://leetcode.com/problems/valid-permutations-for-di-sequence/)
+ > TODO
+
+15. Simple Interpreter
+ > To implement the simplest interpreter and only need to concern about the integer addition. I use structure 
+ > `ExpressionNode` to store the un-calculated expression and the variable name, and use two map `variablePool`, 
+ > `certainVariable` to store the un-calculated variables and calculated variables. In each expression I will try to 
+ > calculate the value of the variable. If it is calculated I will store it into `certainVariable` and re-calculate
+ > variables, which expression contains variable that just calculated, in `ExpressionNode`, if it is calculated in 
+ > `ExpressionNode` I will remove it.
