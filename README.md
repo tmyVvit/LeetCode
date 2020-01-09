@@ -78,3 +78,8 @@
  > calculate the value of the variable. If it is calculated I will store it into `certainVariable` and re-calculate
  > variables, which expression contains variable that just calculated, in `ExpressionNode`, if it is calculated in 
  > `ExpressionNode` I will remove it.
+
+16. VerifyPreorderSerializationOfABinaryTree
+  > 1. Using stack 
+  > 2. *Nice Solution* Using edge, each not empty node can produce two edges and each node will cosume one edge.
+  ![](https://tva1.sinaimg.cn/large/006tNbRwgy1gaql8d80p4j30wm0gc76f.jpg)
