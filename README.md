@@ -83,3 +83,10 @@
   > 1. Using stack 
   > 2. *Nice Solution* Using edge, each not empty node can produce two edges and each node will cosume one edge.
   ![](https://tva1.sinaimg.cn/large/006tNbRwgy1gaql8d80p4j30wm0gc76f.jpg)
+
+17. Snapshot Array
+  > 因为长度最大为50000且set，snap，get的操作数也不会超过50000，所以可以考虑使用稀疏矩阵的数据结构。初始化时构造一个数组，每次set时
+  > 根据snap_id和index创建矩阵中的每个节点或者替换已存在的节点的值。get时拿到数组中index处的节点，依次遍历找到最后一个snap_id不小于
+  > 参数中snap_id的节点，返回其值。
+  > 当所有set操作的index都为一个相同的值时会发现所有的节点都在同一个链表当中，此时调用get取值时相当于遍历链表会比较耗时，当length过大
+  > 时可能会超时。（Leetcode中一个测试用例便是length=50000，且每次set值的index都是0，此时会超时）
