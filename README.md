@@ -92,4 +92,6 @@
   > 时可能会超时。（Leetcode中一个测试用例便是length=50000，且每次set值的index都是0，此时会超时）
 
 18. Friend Circles
-  > 并查集
+  > 1. 并查集
+    2. 查找连通块的个数，一个朋友圈就是一个连通块，使用深度搜索算法 ![](https://tva1.sinaimg.cn/large/006tNbRwgy1gaxiuip97oj30s60mu0vi.jpg)
+    3. 连通块，广度搜索算法  ![](https://tva1.sinaimg.cn/large/006tNbRwgy1gaxiwemnqyj30s60o677c.jpg)
