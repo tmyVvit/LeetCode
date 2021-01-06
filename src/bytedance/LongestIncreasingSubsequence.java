@@ -42,15 +42,15 @@ public class LongestIncreasingSubsequence {
     public int lengthOfLIS2(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         // dp[i] 表示长度为 i 的递增子序列的最小末尾元素的值
-        int[] dp = new int[nums.length];
-        int len = 0;
+        int[] dp = new int[nums.length+1];
+        int len = 1;
         dp[len] = nums[0];
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] > dp[len]) {
                 dp[++len] = nums[i];
             } else {
                 // 使用二分查找找到pos, dp[pos-1] < nums[i] < dp[pos],然后将dp[pos]值替换为nums[i]
-                int l = 0, r = len, pos = 0;
+                int l = 1, r = len, pos = 0;
                 while (l <= r) {
                     int mid = (l+r)>>1;
                     if (dp[mid] < nums[i]) {
@@ -58,9 +58,9 @@ public class LongestIncreasingSubsequence {
                         l = mid + 1;
                     } else r = mid - 1;
                 }
-                dp[pos] = nums[i];
+                dp[pos+1] = nums[i];
             }
         }
-        return len + 1;
+        return len;
     }
 }
