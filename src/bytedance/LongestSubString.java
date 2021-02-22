@@ -1,7 +1,6 @@
 package bytedance;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 最长不重复子串
