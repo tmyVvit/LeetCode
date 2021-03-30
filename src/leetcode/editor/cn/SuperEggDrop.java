@@ -60,7 +60,7 @@ public class SuperEggDrop{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int superEggDrop(int K, int N) {
-        
+        return 0;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

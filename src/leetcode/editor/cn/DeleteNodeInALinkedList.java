@@ -51,9 +51,9 @@ public class DeleteNodeInALinkedList{
  * }
  */
 class Solution {
-    public void deleteNode(ListNode node) {
-        
-    }
+//    public void deleteNode(ListNode node) {
+//
+//    }
 }
 //leetcode submit region end(Prohibit modification and deletion)
 
