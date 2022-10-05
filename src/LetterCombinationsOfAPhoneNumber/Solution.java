@@ -8,47 +8,45 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Solution {
-    //                                    2      3     4       5      6      7      8        9
-    private String[] map = new String[]{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    //                                          2      3     4       5      6      7      8        9
+    private final String[] map = new String[]{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        List<String> reslt = solution.letterCombinations("579");
+        System.out.println(reslt);
+    }
 
     public List<String> letterCombinations(String digits) {
         List<String> pre = new ArrayList<>();
         if (isEmpty(digits)) return pre;
         digits = preProcess(digits);
         if (digits.length() < 2) return combineTwoString("", getStringByDigit(digits.charAt(0)));
-        List<String> tmpResult = new ArrayList<>();
         pre.addAll(combineTwoString("", getStringByDigit(digits.charAt(0))));
         for (int i = 1; i < digits.length(); i++) {
             char tmp = digits.charAt(i);
+            List<String> tmpResult = new ArrayList<>();
             for (String str : pre) {
                 tmpResult.addAll(combineTwoString(str, getStringByDigit(tmp)));
             }
-            pre.clear();
-            pre.addAll(tmpResult);
-            tmpResult.clear();
+            pre = tmpResult;
         }
         return pre;
     }
 
     private List<String> combineTwoString(String a, String b) {
         List<String> result = new ArrayList<>();
-        if (isEmpty(a) && isEmpty(b)) return result;
-        if (isEmpty(b))
-            result.add(a);
-        else if (isEmpty(a)) {
-            for (char str : b.toCharArray()) {
-                result.add("" + str);
-            }
-        } else
-            for (int j = 0; j < b.length(); j++) {
-                result.add(a + b.charAt(j));
-            }
+        a = isEmpty(a) ? "" : a;
+        b = isEmpty(b) ? "" : b;
+        for (char ch : b.toCharArray()) {
+            result.add(a + ch);
+        }
 
         return result;
     }
 
     private String getStringByDigit(char digit) {
-        int number = Integer.valueOf("" + digit);
+        int number = Integer.parseInt("" + digit);
         return map[number - 2];
     }
 
@@ -59,9 +57,8 @@ public class Solution {
     private String preProcess(String digits) {
         StringBuilder result = new StringBuilder();
         for (char ch : digits.toCharArray()) {
-            int tmp = Integer.valueOf("" + ch);
-            if (tmp > 1 && tmp < 10)
-                result.append(tmp);
+            if (ch >= '2' && ch <= '9')
+                result.append(ch);
         }
         return result.toString();
     }
