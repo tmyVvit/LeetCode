@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution2 {
+    //                                          2      3     4      5      6       7       8      9
     private final String[] map = new String[]{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     public static void main(String[] args) {
@@ -34,17 +35,6 @@ public class Solution2 {
         return result;
     }
 
-    private String preProcess(String digits) {
-        if (digits == null || digits.length() == 0) return "";
-        StringBuilder sb = new StringBuilder();
-        for (char ch : digits.toCharArray()) {
-            if (ch >= '2' && ch <= '9') {
-                sb.append(ch);
-            }
-        }
-        return sb.toString();
-    }
-
     private void backtrack(String digits, int index, char[] choose, List<String> result) {
         if (index == digits.length()) {
             result.add(new String(choose));
@@ -56,5 +46,16 @@ public class Solution2 {
                 backtrack(digits, index + 1, choose, result);
             }
         }
+    }
+
+    private String preProcess(String digits) {
+        if (digits == null || digits.length() == 0) return "";
+        StringBuilder sb = new StringBuilder();
+        for (char ch : digits.toCharArray()) {
+            if (ch >= '2' && ch <= '9') {
+                sb.append(ch);
+            }
+        }
+        return sb.toString();
     }
 }
