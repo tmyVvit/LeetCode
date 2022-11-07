@@ -40,15 +40,11 @@ public class Solution {
         if (index == str.length()) return str;
         String left = str.substring(0, index);
         String right = str.substring(index);
-        if (allZeroOrEndWithZero(right)) return null;
+        if (endWithZero(right)) return null;
         return left + "." + right;
     }
 
-    private boolean allZeroOrEndWithZero(String val) {
-        if (val.charAt(val.length() - 1) == '0') return true;
-        for (char ch : val.toCharArray()) {
-            if (ch != '0') return false;
-        }
-        return true;
+    private boolean endWithZero(String val) {
+        return val.charAt(val.length() - 1) == '0';
     }
 }
