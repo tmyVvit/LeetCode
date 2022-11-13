@@ -1,9 +1,6 @@
 package shortestPathToGetAllKeys;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Solution {
 
@@ -11,9 +8,70 @@ public class Solution {
 
     public static void main(String[] args) {
         String[] grid = new String[]{"@fedcbBCDEFaA"};
+        String[] grid2 = new String[]{"@.a..","###.#","b.A.B"};
+        String[] grid3 = new String[]{"@...a",".###A","b.BCc"};
+        /**
+
+         @ . . . a
+         . # # # A
+         b . B C c
+
+         */
         Solution s = new Solution();
-        int res = s.shortestPathAllKeys(grid);
+        int res = s.shortestPathAllKeys2(grid3);
         System.out.println(res);
+    }
+
+    public int shortestPathAllKeys2(String[] grid) {
+        int allKeys = 0, rowCount = grid.length, colCount = grid[0].length();
+        int[] startPos = new int[2];
+        for (int i = 0; i < rowCount; i++) {
+            for (int j = 0; j < colCount; j++) {
+                if (grid[i].charAt(j) == '@') {
+                    startPos[0] = i;
+                    startPos[1] = j;
+                } else if (grid[i].charAt(j) >= 'a' && grid[i].charAt(j) <= 'z') {
+                    allKeys |= 1 << (grid[i].charAt(j) - 'a');
+                }
+            }
+        }
+        int[][][] steps = new int[rowCount][colCount][allKeys + 1];
+        Deque<int[]> queue = new LinkedList<>();
+        queue.addLast(new int[]{startPos[0], startPos[1], 0});
+        while (!queue.isEmpty()) {
+            int[] curr = queue.pollFirst();
+            for (int i = 0; i < 4; i++) {
+                int nextRow = curr[0] + step[i];
+                int nextCol = curr[1] + step[i + 1];
+                if (nextRow >= 0 && nextRow < rowCount && nextCol >= 0 && nextCol < colCount) {
+                    char ch = grid[nextRow].charAt(nextCol);
+                    int currentStep = steps[curr[0]][curr[1]][curr[2]] + 1;
+                    if (ch == '.' || ch == '@') {
+                        if (steps[nextRow][nextCol][curr[2]] == 0 || steps[nextRow][nextCol][curr[2]] > currentStep) {
+                            int[] nextStep = new int[]{nextRow, nextCol, curr[2]};
+                            queue.addLast(nextStep);
+                            steps[nextRow][nextCol][curr[2]] = currentStep;
+                        }
+                    } else if (ch >= 'a' && ch <= 'z') {
+                        int nextKey = curr[2] | (1 << (ch - 'a'));
+                        if (nextKey == allKeys) return currentStep;
+                        if (steps[nextRow][nextCol][nextKey] == 0 || steps[nextRow][nextCol][nextKey] > currentStep) {
+                            int[] nextStep = new int[]{nextRow, nextCol, nextKey};
+                            queue.addLast(nextStep);
+                            steps[nextRow][nextCol][nextKey] = currentStep;
+                        }
+                    } else if (ch >= 'A' && ch <= 'Z') {
+                        int needKey = 1 << ((ch - ('A' - 'a')) - 'a');
+                        if ((curr[2] & needKey) != 0 && (steps[nextRow][nextCol][curr[2]] == 0 || steps[nextRow][nextCol][curr[2]] > currentStep)) {
+                            int[] nextStep = new int[]{nextRow, nextCol, curr[2]};
+                            queue.addLast(nextStep);
+                            steps[nextRow][nextCol][curr[2]] = currentStep;
+                        }
+                    }
+                }
+            }
+        }
+        return -1;
     }
 
     // . 空房间
