@@ -1,7 +1,6 @@
 package shortestUnsortedContinuousSubarray;
 
 import java.util.Arrays;
-import java.util.PriorityQueue;
 
 public class Solution {
 
@@ -20,7 +19,7 @@ public class Solution {
         return right - left + 1;
     }
 
-    public int findUnsortedSubarray(int[] nums) {
+    public int findUnsortedSubarray1(int[] nums) {
         int left = -1, right = -1;
         int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
         int len = nums.length;
