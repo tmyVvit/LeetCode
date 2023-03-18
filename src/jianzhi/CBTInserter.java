@@ -1,5 +1,7 @@
 package jianzhi;
 
+import jianzhi.common.TreeNode;
+
 import java.util.LinkedList;
 
 public class CBTInserter {
@@ -71,17 +73,6 @@ public class CBTInserter {
 
         Node(TreeNode node) {
             this.node = node;
-        }
-    }
-
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() { }
-        TreeNode(int val) {
-            this.val = val;
         }
     }
 }
