@@ -2,7 +2,7 @@ package Huawei.niuke;
 
 import java.util.Scanner;
 
-public class Hj16ShoppingList {
+public class HJ16ShoppingList {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
