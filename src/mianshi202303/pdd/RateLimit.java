@@ -1,4 +1,4 @@
-package pdd;
+package mianshi202303.pdd;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -29,5 +29,4 @@ public class RateLimit {
         }
         return false;
     }
-
 }
