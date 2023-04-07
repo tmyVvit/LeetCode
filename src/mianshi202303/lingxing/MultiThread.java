@@ -1,4 +1,4 @@
-package lingxing;
+package mianshi202303.lingxing;
 
 public class MultiThread {
 
