@@ -2,8 +2,8 @@ package jianzhi;
 
 public class Trie {
 
-    private final Trie[] children;
-    private boolean end;
+    protected final Trie[] children;
+    protected boolean end;
 
     /** Initialize your data structure here. */
     public Trie() {
