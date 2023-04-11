@@ -44,4 +44,29 @@ public class FindSingleNumInArray {
         }
         return -1;
     }
+
+    // 数组中只有一个元素出现一次，其他元素都出现两次
+    // 而且数组是有序的，那么对于值出现一次的数字 x
+    // x 左边的数字 nums[i] == nums[i+1]，i 是偶数
+    // x 右边的数字 num[i] == nums[i+1]，i 是奇数
+    public int singleNonDuplicate0(int[] nums) {
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int m = l + ((r - l) >> 1);
+            if ((m & 1) == 0) {
+                if (nums[m] == nums[m + 1]) {
+                    l = m + 1;
+                } else {
+                    r = m;
+                }
+            } else {
+                if (nums[m] == nums[m + 1]) {
+                    r = m;
+                } else {
+                    l = m + 1;
+                }
+            }
+        }
+        return l;
+    }
 }
