@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PermuteUnique {
+public class Permute {
 
-    // nums 中包含重复元素
-    public List<List<Integer>> permuteUnique(int[] nums) {
-        Arrays.sort(nums);
+    // nums 中不包含重复元素
+    public List<List<Integer>> permute(int[] nums) {
         boolean[] visit = new boolean[nums.length];
         List<List<Integer>> res = new ArrayList<>();
         backtrack(0, nums, visit, new ArrayList<>(nums.length), res);
@@ -22,7 +21,7 @@ public class PermuteUnique {
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if (visit[i] || (i > 0 && nums[i] == nums[i - 1] && !visit[i - 1])) {
+            if (visit[i]) {
                 continue;
             }
             permute.add(nums[i]);
