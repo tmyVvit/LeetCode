@@ -20,6 +20,7 @@ public class RateLimit {
             synchronized (this) {
                 if (timeSecond > latestSeconds) {
                     latestSeconds = timeSecond;
+                    count.set(0);
                 }
             }
         }
