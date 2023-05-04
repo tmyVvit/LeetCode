@@ -20,12 +20,15 @@ public class Solution {
         for (int num : nums) {
             sum += num;
         }
+        // 设 nums 中选取的 - 的数的和为 neg，那么选取的 + 的数的和为 sum - neg
+        // 那么就有：sum - neg - neg = target  --> neg = (sum - target) / 2
+        // 下面的 number = 2 * neg
         int number = sum - target;
         if (number < 0 || (number & 1) == 1) {
             return 0;
         }
         number >>= 1;
-        // dp[i][j] 代表数组下标 [0,i] 的和为 number 的个数
+        // dp[i][j] 代表数组下标 [0,i] 的和为 j 的个数
         // dp[i][j] = dp[i-1][j-nums[i]] + dp[i-1][j]
         int[] dp = new int[number + 1];
         dp[0] = 1;
