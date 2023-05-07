@@ -18,24 +18,23 @@ public class IslandMaxArea {
                 if (grid[i][j] == 0 || visited[i][j] == 1) {
                     continue;
                 }
-                List<int[]> islands = new ArrayList<>();
-                dfs(i, j, m, n, grid, visited, islands);
-                max = Math.max(max, islands.size());
+                max = Math.max(max, dfs(i, j, m, n, grid, visited));
             }
         }
         return max;
     }
 
-    private void dfs(int i, int j, int m, int n, int[][] grid, int[][] visited, List<int[]> islands) {
+    private int dfs(int i, int j, int m, int n, int[][] grid, int[][] visited) {
         if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] != 1 || visited[i][j] == 1) {
-            return;
+            return 0;
         }
 
         visited[i][j] = 1;
-        islands.add(new int[]{i, j});
-        dfs(i, j + 1, m, n, grid, visited, islands);
-        dfs(i, j - 1, m, n, grid, visited, islands);
-        dfs(i - 1, j, m, n, grid, visited, islands);
-        dfs(i + 1, j, m, n, grid, visited, islands);
+        int ans = 1;
+        ans += dfs(i, j + 1, m, n, grid, visited);
+        ans += dfs(i, j - 1, m, n, grid, visited);
+        ans += dfs(i - 1, j, m, n, grid, visited);
+        ans += dfs(i + 1, j, m, n, grid, visited);
+        return ans;
     }
 }
