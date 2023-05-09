@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
 public class GenerateH2O {
 
     private final Semaphore s1 = new Semaphore(2);
-    private final Semaphore s2 = new Semaphore(1);
+    private final Semaphore s2 = new Semaphore(0);
 
     public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
         s2.acquire();
