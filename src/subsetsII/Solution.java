@@ -16,6 +16,7 @@ public class Solution {
     }
 
     public List<List<Integer>> subsetsWithDup(int[] nums) {
+        // 先将数组排序，相同的数字在一起
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
@@ -30,8 +31,11 @@ public class Solution {
         }
 
         int sameEnd = findSameEnd(i, nums);
+        // 连续相同的数字个数
         int count = sameEnd - i;
+        // 先取所有数字
         listAdd(list, nums[i], count);
+        // 回溯每次减少一个数字
         while (count >= 0) {
             choose(sameEnd, nums, list, res);
             if (count > 0) {
