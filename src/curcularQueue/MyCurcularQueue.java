@@ -41,7 +41,7 @@ class MyCircularQueue {
         if (isEmpty()) {
             return -1;
         }
-        // 防止
+        // 防止 tail == 0 时为 -1 的情况
         return values[(tail - 1 + len)%len];
     }
 
