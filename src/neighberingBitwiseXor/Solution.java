@@ -2,7 +2,23 @@ package neighberingBitwiseXor;
 
 // 2683. 相邻值的按位异或 https://leetcode.cn/problems/neighboring-bitwise-xor/
 public class Solution {
-    public boolean doesValidArrayExist(int[] derived) {
+    public boolean doesValidArrayExist2(int[] derived) {
+        if (derived.length == 1) {
+            return derived[0] == 0;
+        }
+        for (int i = 0; i < 2; i++) {
+            int x = i;
+            for (int d : derived) {
+                x ^= d;
+            }
+            if (x == i) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean doesValidArrayExist1(int[] derived) {
         if (derived.length == 1) {
             return derived[0] == 0;
         }
