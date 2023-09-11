@@ -33,8 +33,6 @@
 
 package leetcode.editor.cn;
 
-import javax.xml.bind.annotation.XmlID;
-
 public class SearchA2dMatrix {
     public static int[][] matrix = new int[][]{
             new int[]{2, 3, 5, 7},
