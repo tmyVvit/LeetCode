@@ -20,7 +20,7 @@ public class MaxWidthOfBinaryTree {
         return node == null || (node.left == null && node.right == null);
     }
 
-    // 广度优先便利
+    // 广度优先遍历
     public int widthOfBinaryTree(TreeNode root) {
         List<Pair<Integer, TreeNode>> list = new ArrayList<>();
         list.add(new Pair<>(1, root));
